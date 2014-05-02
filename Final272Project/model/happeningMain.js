@@ -1,0 +1,74 @@
+var ejs = require("ejs");
+var yelp = require('./index').createClient({
+	  consumer_key: '-kwjSmzwcifwF_JubdPi1A',
+	  consumer_secret: '8-MDfCerhnB25mbf42ubnnEe3Nk',
+	  token: 'R2gML41fl2o_AnXIhftKiIUMiopUVEzh',
+	  token_secret: 'En1-vxsT0zNKyJWwFyXuUVvxJE8',
+	  ssl: true
+	});
+
+function getHappeningPage(req,res){
+	ejs.renderFile('./views/home.ejs',
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+}
+
+function listHappeningPlaces(req, res){
+
+	console.log(req.param('categories'));
+	console.log(req.param('place'));
+	if(!req.body.hasOwnProperty('categories') ||!req.body.hasOwnProperty('place')) {
+		res.statusCode = 400;
+		return res.send('Error 400: Post syntax incorrect.');
+	}
+
+	yelp.search({term: req.param('categories'), location: req.param('place')}, function(err, data) {
+		  console.log(err);
+		  console.log(data);
+		  if(err){
+				throw err;
+			}else{
+				ejs.renderFile('./views/happeningList.ejs',
+						{happeningData : data},
+						function(err, result) {
+							if (!err) {
+								res.end(result);
+							}
+							else {
+								res.end('An error occurred');
+								console.log(err);
+							}
+						});
+			}
+		  
+		});
+}
+
+function showBusinessDetailPage(req,res){
+	console.log('Inside show Business Detail Page');
+}
+
+
+function showGraphicalAnalytics(req,res){
+	console.log('Inside show Graphical Analytics');
+}
+
+
+function displayReviews(req,res){
+	console.log('Inside display Reviews');
+}
+
+exports.getHappeningPage = getHappeningPage;
+exports.listHappeningPlaces = listHappeningPlaces;
+exports.showBusinessDetailPage = showBusinessDetailPage;
+exports.showGraphicalAnalytics = showGraphicalAnalytics;
+exports.displayReviews = displayReviews;
