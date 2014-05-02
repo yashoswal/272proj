@@ -18,7 +18,19 @@ app.configure(function () {
 	app.use(express.static(path.join(application_root, "public")));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
+
+app.get('/home', function (req, res) {
+	main.getHomePage(req,res);
+});
 	
+app.get('/developers', function (req, res) {
+	main.getDevelopersPage(req,res);
+});
+
+app.get('/poweredBy', function (req, res) {
+	main.getPoweredByPage(req,res);
+});
+
 app.get('/happening', function (req, res) {
 	main.getHappeningPage(req,res);
 });

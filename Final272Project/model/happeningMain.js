@@ -8,7 +8,52 @@ var yelp = require('./index').createClient({
 	});
 
 function getHappeningPage(req,res){
+	ejs.renderFile('./views/happeningSearch.ejs',
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+}
+
+function getHomePage(req,res){
 	ejs.renderFile('./views/home.ejs',
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+}
+
+function getDevelopersPage(req,res){
+	ejs.renderFile('./views/developers.ejs',
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+}
+
+function getPoweredByPage(req,res){
+	ejs.renderFile('./views/poweredBy.ejs',
 			function(err, result) {
 		// render on success
 		if (!err) {
@@ -72,3 +117,6 @@ exports.listHappeningPlaces = listHappeningPlaces;
 exports.showBusinessDetailPage = showBusinessDetailPage;
 exports.showGraphicalAnalytics = showGraphicalAnalytics;
 exports.displayReviews = displayReviews;
+exports.getHomePage = getHomePage;
+exports.getDevelopersPage = getDevelopersPage;
+exports.getPoweredByPage = getPoweredByPage;

@@ -37,12 +37,33 @@
     </header>
     <!--header end-->
     <div class="box">
-      <h3>Happening: Feel the best At the Best Place</h3>
+      <h3>Select the Category & Area for The Happening place</h3>
       <br/><br/>
-	  
-		  <p> Under Construction </p>
+	  <form name="happening" action="/happeningList" method="post">
+		  <table>
+			<tbody>
+				<tr>
+					<td><label for="categories" style="font-size:20px;">Category:</label></td>
+					<td><select id="categories" name="categories" style="background-color:#EEEEEE;color:#777777;width:180px;height:30px;font-size:20px;">
+						  <option value="restaurants">Restaurants</option>
+						  <option value="Cafes">Cafe</option>
+						  <option value="bars">Bars & Lounges</option>
+						  <option value="clubs">Night Clubs</option>
+						  <option value="tourist attractions">Tourist Attractions</option>
+						  <option value="events">Events</option>
+						  <option value="theatres">Theatres</option>
+					</select></td>
+				</tr>
+				<tr><td/></tr>
+				<tr>
+				<td><label for="place" style="font-size:20px;">Place (County Name): </label> </td>
+				<td><input id="place" maxlength="45" name="place" type="text" style="background-color:#EEEEEE;color:#777777;width:180px;height:30px;font-size:20px;"/> </td>
+				</tr>
+				<tr><td></td> </tr></tbody>
+			</table>
 			<br/>
-			
+			<input name="Submit" type="submit" value="Submit" style="margin-left:150px;background-color:#7532A9;color:#FFFFFF; font-size:20px;width:100px; height:30px;"/>
+		</form>
 
     </div>
   </div>

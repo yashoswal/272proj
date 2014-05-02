@@ -49,27 +49,20 @@
 									<h3>Most Happening Restaurants in San Jose</h3>
 									<br/>
 									<form name="happening" action="/happeningList" method="post">
-									<% if(happeningData != null && happeningData.length > 0) {
+									<% console.log('Happening data inside HTML:: '+happeningData);
+									if(happeningData != null && happeningData.length > 0) {
               
 				                    	for(var i=0;i<happeningData.length;i++) {
-				                    	//console.log(movies[i].movie_id);
+				                    	
 				                    %>
 									<table>
 									<tbody>
-
-									<tr>
-										
-									</tr>
-									<br/><br/>
 									
-									<tr><td/></tr>
 									<tr>
-									<td><label for="place">Place (County Name): </label> </td>
-									<td><input id="place" maxlength="45" name="place" type="text" /> </td>
-									</tr>
-									<tr><td><input name="Submit" type="submit" value="Submit" /></td> </tr></tbody>
+								      <td><%= happeningData[i].name %>
+								      </td> </tr></tbody>
 									</table>
-									<% } } else {%>
+									<% }} else {%>
 									<p> No Records found for the Category in the given Location... </p>
 									<%}%>
 									</form>
