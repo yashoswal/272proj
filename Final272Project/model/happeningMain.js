@@ -69,8 +69,8 @@ function getPoweredByPage(req,res){
 
 function listHappeningPlaces(req, res){
 
-	console.log(req.param('categories'));
-	console.log(req.param('place'));
+	//console.log(req.param('categories'));
+	//console.log(req.param('place'));
 	if(!req.body.hasOwnProperty('categories') ||!req.body.hasOwnProperty('place')) {
 		res.statusCode = 400;
 		return res.send('Error 400: Post syntax incorrect.');
@@ -78,7 +78,7 @@ function listHappeningPlaces(req, res){
 
 	yelp.search({term: req.param('categories'), location: req.param('place'), sort:"2"}, function(err, data) {
 		  console.log(err);
-		  console.log(data);
+		  //console.log(data);
 		  if(err){
 				throw err;
 			}else{
@@ -112,6 +112,46 @@ function displayReviews(req,res){
 	console.log('Inside display Reviews');
 }
 
+
+function getChartPage(req,res){
+	yelp.search({term: req.params.c, location: req.params.p, sort:"2"}, function(err, data) {
+		var dta="";
+		var lbl="";
+		var rt="";
+	/*
+		var hap=data.businesses;
+		for(var i=0;i<5;i++) {
+			//lbl=lbl+'"'+hap[i].name+'",';
+			lbl=lbl+'"<%=happeningData['+i+'].name%>",';
+			//dta=dta+(hap[i].review_count)/1000+",";
+			dta=dta+'<%=happeningData['+i+'].review_count%>,';
+			//rt=rt+hap[i].rating+",";
+			rt=rt+'<%=happeningData['+i+'].rating%>,';
+		}
+		lbl = lbl.substring(0, lbl.length - 1);
+		dta = dta.substring(0, dta.length - 1);
+		console.log(lbl);
+		console.log(dta);*/
+		  if(err){
+				throw err;
+			}else{
+						
+				ejs.renderFile('./views/chartPage.ejs',
+						{happeningData:data.businesses, lbl:lbl, dta:dta, rt: rt},
+						function(err, result) {
+							if (!err) {
+								res.end(result);
+							}
+							else {
+								res.send('An error occurred');
+								console.log(err);
+							}
+						});
+			}
+		  
+		});
+}
+
 exports.getHappeningPage = getHappeningPage;
 exports.listHappeningPlaces = listHappeningPlaces;
 exports.showBusinessDetailPage = showBusinessDetailPage;
@@ -120,3 +160,4 @@ exports.displayReviews = displayReviews;
 exports.getHomePage = getHomePage;
 exports.getDevelopersPage = getDevelopersPage;
 exports.getPoweredByPage = getPoweredByPage;
+exports.getChartPage = getChartPage;
