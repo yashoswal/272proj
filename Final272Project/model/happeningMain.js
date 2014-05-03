@@ -82,14 +82,14 @@ function listHappeningPlaces(req, res){
 		  if(err){
 				throw err;
 			}else{
-				ejs.renderFile('./views/happeningList.ejs',
-						{happeningData : data},
+				ejs.renderFile('./views/categoryWiseHappeningList.ejs',
+						{happeningData:data.businesses, categories:req.param('categories'), place:req.param('place')},
 						function(err, result) {
 							if (!err) {
 								res.end(result);
 							}
 							else {
-								res.end('An error occurred');
+								res.send('An error occurred');
 								console.log(err);
 							}
 						});

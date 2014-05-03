@@ -37,34 +37,37 @@
     </header>
     <!--header end-->
     <div class="box">
-      <h2>Select the Category & Area for The Happening place</h2>
-      <br/><br/>
-	  <form name="happening" action="/happeningList" method="post">
-		  <table>
-			<tbody>
-				<tr>
-					<td><label for="categories" style="font-size:20px;">Category:</label></td>
-					<td><select id="categories" name="categories" style="background-color:#EEEEEE;color:#777777;width:180px;height:30px;font-size:20px;">
-						  <option value="Restaurants">Restaurants</option>
-						  <option value="Cafes">Cafe</option>
-						  <option value="Bars">Bars & Lounges</option>
-						  <option value="Clubs">Night Clubs</option>
-						  <option value="Tourist Attractions">Tourist Attractions</option>
-						  <option value="Events">Events</option>
-						  <option value="Theatres">Theatres</option>
-					</select></td>
-				</tr>
-				<tr><td/></tr>
-				<tr>
-				<td><label for="place" style="font-size:20px;">Place (County Name): </label> </td>
-				<td><input id="place" maxlength="45" name="place" type="text" style="background-color:#EEEEEE;color:#777777;width:180px;height:30px;font-size:20px;"/> </td>
-				</tr>
-				<tr><td></td> </tr></tbody>
-			</table>
-			<br/>
-			<input name="Submit" type="submit" value="Submit" style="margin-left:150px;background-color:#7532A9;color:#FFFFFF; font-size:20px;width:100px; height:30px;"/>
-		</form>
-
+        <article id="content">
+	        <div class="wrapper">
+	          <h2>Most Happening <%=categories%> in <%=place%></h2>
+	          <div class="wrapper">
+	          	<% console.log('Happening data inside HTML:: '+happeningData);
+						if(happeningData != null && happeningData.length > 0) {
+  							var j=2;
+	                    	for(var i=0;i<happeningData.length;i++) {
+	                    	
+	             %>
+	             <% if (i==j){ 
+	             	j=i+3;%>
+	             <div class="cols">
+	             <% }else{ %>
+	            <div class="cols marg_right1"><%}%> 
+	              <figure class="pad_bot1">
+	              	<div id="gridClass">
+	              		<br/>
+	              		<p><img src="<%=happeningData[i].image_url%>"/></p>
+	              		<p style="font-size:20px;font-style:italic"><%= happeningData[i].name%></p>
+	              		<p><img src="<%=happeningData[i].rating_img_url%>"/></p>
+	              		<p style="font-size:10px;">Review Count: <%= happeningData[i].review_count%></p>
+	              	</div>
+	              </figure>
+	            </div>
+	            <% }} else {%>
+					<p> No Records found for the Category in the given Location... </p>
+					<%}%>
+	          </div>
+	        </div>
+      	</article>
     </div>
   </div>
 </div>
