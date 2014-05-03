@@ -39,9 +39,13 @@
     <div class="box">
         <article id="content">
 	        <div class="wrapper">
-	          <h2>Most Happening <%=categories%> in <%=place%></h2>
+	        <form name="chart" action="/chart/<%=categories%>/<%=place%>" method="post">
+	        <input type="hidden" name="categories" value="<%=categories%>">
+	        <input type="hidden" name="place" value="<%=place%>">
+	          <h2>Most Happening <%=categories%> in <%=place%><input name="Submit" type="submit" value="Grapical Analysis" style="margin-left:150px;background-color:#7532A9;color:#FFFFFF; font-size:20px;width:200px; height:30px;"/></h2>
+	        </form>  
 	          <div class="wrapper">
-	          	<% console.log('Happening data inside HTML:: '+happeningData);
+	          	<% //console.log('Happening data inside HTML:: '+happeningData);
 						if(happeningData != null && happeningData.length > 0) {
   							var j=2;
 	                    	for(var i=0;i<happeningData.length;i++) {
