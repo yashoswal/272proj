@@ -76,7 +76,7 @@ function listHappeningPlaces(req, res){
 		return res.send('Error 400: Post syntax incorrect.');
 	}
 
-	yelp.search({term: req.param('categories'), location: req.param('place')}, function(err, data) {
+	yelp.search({term: req.param('categories'), location: req.param('place'), sort:"2"}, function(err, data) {
 		  console.log(err);
 		  console.log(data);
 		  if(err){

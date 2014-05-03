@@ -53,13 +53,15 @@
 	             <% }else{ %>
 	            <div class="cols marg_right1"><%}%> 
 	              <figure class="pad_bot1">
-	              	<div id="gridClass">
-	              		<br/>
-	              		<p><img src="<%=happeningData[i].image_url%>"/></p>
-	              		<p style="font-size:20px;font-style:italic"><%= happeningData[i].name%></p>
-	              		<p><img src="<%=happeningData[i].rating_img_url%>"/></p>
-	              		<p style="font-size:10px;">Review Count: <%= happeningData[i].review_count%></p>
-	              	</div>
+	              	<a href="/showBusinessDetailPage/<%=happeningData[i].id%>">
+		              	<div id="gridClass">
+		              		<br/>
+		              		<p><img src="<%=happeningData[i].image_url%>"/></p>
+		              		<p style="font-size:20px;font-style:italic"><%= happeningData[i].name%></p>
+		              		<p><img src="<%=happeningData[i].rating_img_url%>"/></p>
+		              		<p style="font-size:10px;">Review Count: <%= happeningData[i].review_count%></p>
+		              	</div>
+	              	</a>
 	              </figure>
 	            </div>
 	            <% }} else {%>
