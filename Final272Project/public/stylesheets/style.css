@@ -430,3 +430,11 @@ display:table-cell;
 vertical-align:middle;
 text-align:center;
 }
+
+#businessDetails{
+	color:#FFFFFF;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	width:850px;
+}

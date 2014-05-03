@@ -100,6 +100,31 @@ function listHappeningPlaces(req, res){
 
 function showBusinessDetailPage(req,res){
 	console.log('Inside show Business Detail Page');
+	
+	
+	var bizId = req.params.id;
+	console.log(bizId);
+	
+	yelp.business(req.params.id, function(err, data) {
+		console.log(err);
+		console.log(data);
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/businessDetailPage.ejs',
+					{businessData:data},
+					function(err, result) {
+						if (!err) {
+							res.end(result);
+						}
+						else {
+							res.send('An error occurred');
+							console.log(err);
+						}
+					});
+		}
+
+	});
 }
 
 

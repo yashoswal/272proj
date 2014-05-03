@@ -40,7 +40,7 @@ app.post('/happeningList', function (req, res) {
 	main.listHappeningPlaces(req,res);
 });
 
-app.post('/showBusinessDetailPage', function (req, res) {
+app.get('/showBusinessDetailPage/:id', function (req, res) {
 	main.showBusinessDetailPage(req,res);
 });
 
