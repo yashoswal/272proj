@@ -69,8 +69,8 @@ function getPoweredByPage(req,res){
 
 function listHappeningPlaces(req, res){
 
-	//console.log(req.param('categories'));
-	//console.log(req.param('place'));
+	console.log(req.param('categories'));
+	console.log(req.param('place'));
 	if(!req.body.hasOwnProperty('categories') ||!req.body.hasOwnProperty('place')) {
 		res.statusCode = 400;
 		return res.send('Error 400: Post syntax incorrect.');
@@ -78,9 +78,9 @@ function listHappeningPlaces(req, res){
 
 	yelp.search({term: req.param('categories'), location: req.param('place'), sort:"2"}, function(err, data) {
 		  console.log(err);
-		  //console.log(data);
+		  console.log(data);
 		  if(err){
-				throw err;
+			  return res.send('No records found for the given Place');
 			}else{
 				ejs.renderFile('./views/categoryWiseHappeningList.ejs',
 						{happeningData:data.businesses, categories:req.param('categories'), place:req.param('place')},

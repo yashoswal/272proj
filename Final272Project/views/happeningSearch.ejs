@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+	function validateSearch(obj)
+	{
+		if(obj.place.value == null || obj.place.value == '')
+		{
+			alert("Please enter place before proceeding");
+			return false;
+		} 
+		return true;
+	}
+</script>
 <title>The Happening</title>
 <meta charset="utf-8">
 <link href="/stylesheets/reset.css" rel="stylesheet" type="text/css" media="all"/>
@@ -17,6 +28,7 @@
 <script src="js/atooltip.jquery.js"></script>
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
+
 <link rel="stylesheet" href="css/ie.css" type="text/css" media="all">
 <![endif]-->
 </head>
@@ -39,7 +51,7 @@
     <div class="box">
       <h2>Select the Category & Area for The Happening place</h2>
       <br/><br/>
-	  <form name="happening" action="/happeningList" method="post">
+	  <form action="/happeningList" method="post" onsubmit="return validateSearch(this);">
 		  <table>
 			<tbody>
 				<tr>
@@ -52,6 +64,8 @@
 						  <option value="Tourist Attractions">Tourist Attractions</option>
 						  <option value="Events">Events</option>
 						  <option value="Theatres">Theatres</option>
+						  <option value="hotels">Hotels</option>
+						  <option value="shopping center">Shopping Center</option>
 					</select></td>
 				</tr>
 				<tr><td/></tr>
@@ -62,7 +76,7 @@
 				<tr><td></td> </tr></tbody>
 			</table>
 			<br/>
-			<input name="Submit" type="submit" value="Search" style="margin-left:150px;background-color:#7532A9;color:#FFFFFF; font-size:20px;width:100px; height:30px;"/>
+			<input name="submit" type="submit" value="Search" style="margin-left:150px;background-color:#7532A9;color:#FFFFFF; font-size:20px;width:100px; height:30px;"/>
 		</form>
 
     </div>
