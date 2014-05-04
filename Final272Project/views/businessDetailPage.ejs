@@ -39,7 +39,7 @@
     <div class="box">
         <article id="content">
 	        <div class="wrapper">
-	          <h2>Check out more about: <%=businessData.name%></h2>
+	          <h2 style="text-align:center">Check out more about: <%=businessData.name%></h2>
 	          
 	          	<br/>
 	          		<%
@@ -51,12 +51,17 @@
 		           <p><h2 style="padding:0px;font-style:italic"><%=businessData.name%></h2>
 		           	  <div><img src="<%=businessData.rating_img_url_large%>"/></div>
 		           	  Review Count: <%= businessData.review_count%></p>
-		           <p>Address: <%=businessData.name%></p>
-		           <p><%=businessData.name%></p>
-		           <p><%=businessData.name%></p>
-		           <p><%=businessData.name%></p>
-		           <p></p>
-		           <p><%=businessData.name%></p>
+		           	  <p>Address:
+		           	  <%
+		           	  	if(businessData.location.display_address.length>0){
+		           	  		for(var i=0; i<businessData.location.display_address.length;i++){
+		           	  %>
+		            <%=businessData.location.display_address[i]%>
+		            <%}}%>
+		            </p>
+		           <p>Phone Number: <%=businessData.display_phone%></p>
+		           <p>Expert Says: <%=businessData.snippet_text%></p>
+		           <p>For more details click <a href="<%=businessData.url%>">here</a></p>
 		           </div>
 	        </div>
       	</article>
