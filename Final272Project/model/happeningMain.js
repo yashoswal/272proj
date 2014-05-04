@@ -77,8 +77,8 @@ function listHappeningPlaces(req, res){
 	}
 
 	yelp.search({term: req.param('categories'), location: req.param('place'), sort:"2"}, function(err, data) {
-		  console.log(err);
-		  console.log(data);
+		  //console.log(err);
+		  //console.log(data);
 		  if(err){
 			  return res.send('No records found for the given Place');
 			}else{
