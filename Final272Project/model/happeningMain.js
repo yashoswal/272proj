@@ -103,11 +103,11 @@ function showBusinessDetailPage(req,res){
 	
 	
 	var bizId = req.params.id;
-	console.log(bizId);
+	//console.log(bizId);
 	
 	yelp.business(req.params.id, function(err, data) {
-		console.log(err);
-		console.log(data);
+		//console.log(err);
+		//console.log(data);
 		if(err){
 			throw err;
 		}else{
