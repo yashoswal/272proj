@@ -177,6 +177,7 @@ function getChartPage(req,res){
 		});
 }
 
+
 exports.getHappeningPage = getHappeningPage;
 exports.listHappeningPlaces = listHappeningPlaces;
 exports.showBusinessDetailPage = showBusinessDetailPage;
