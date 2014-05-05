@@ -22,7 +22,7 @@ mark, rp, rt, ruby, summary, time {
 body {
 	background: url(images/bg.jpg) center 0 no-repeat #000;
 	border:0;
-	font:14px Arial, Helvetica, sans-serif;
+	font:14px mv boli, Helvetica, sans-serif;
 	color:#7f7f7f;
 	line-height:25px;
 	min-width:960px;
@@ -72,7 +72,7 @@ h1 {
 }
 h2 {
 	font-size:35px;
-	color:#fff;
+	color:yellow;
 	line-height:1.2em;
 	padding:20px 0 14px 0;
 	letter-spacing:-3px;
