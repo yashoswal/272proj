@@ -54,13 +54,38 @@
 		<canvas id="canvas1" height="500" width="1100"></canvas>
 
 	<script>
+		 <% var sum=0; happeningData.forEach( function ( happeningData ){
+		 sum=sum+happeningData.review_count;
+			 }); 
+			 var d1 = (happeningData[0].review_count*5)/sum;
+			 var d2 =(happeningData[1].review_count*5)/sum;
+			 var d3 =(happeningData[2].review_count*5)/sum;
+			 var d4 =(happeningData[3].review_count*5)/sum;
+			 var d5 =(happeningData[4].review_count*5)/sum;
+			 var d6 = (happeningData[5].review_count*5)/sum;
+			 var d7 =(happeningData[6].review_count*5)/sum;
+			 var d8 =(happeningData[7].review_count*5)/sum;
+			 var d9 =(happeningData[8].review_count*5)/sum;
+			 var d10 =(happeningData[9].review_count*5)/sum;
+			 var d11 = (happeningData[10].review_count*5)/sum;
+			 var d12 =(happeningData[11].review_count*5)/sum;
+			 var d13 =(happeningData[12].review_count*5)/sum;
+			 var d14 =(happeningData[13].review_count*5)/sum;
+			 var d15 =(happeningData[14].review_count*5)/sum;
+			 var d16 = (happeningData[15].review_count*5)/sum;
+			 var d17 =(happeningData[16].review_count*5)/sum;
+			 var d18 =(happeningData[17].review_count*5)/sum;
+			 var d19 =(happeningData[18].review_count*5)/sum;
+			 var d20 =(happeningData[19].review_count*5)/sum;
+		%>
+		
 		var barChartData = {
 			labels : ["<%=happeningData[0].name%>","<%=happeningData[1].name%>","<%=happeningData[2].name%>","<%=happeningData[3].name%>","<%=happeningData[4].name%>","<%=happeningData[5].name%>","<%=happeningData[6].name%>","<%=happeningData[7].name%>","<%=happeningData[8].name%>","<%=happeningData[9].name%>","<%=happeningData[10].name%>","<%=happeningData[11].name%>","<%=happeningData[12].name%>","<%=happeningData[13].name%>","<%=happeningData[14].name%>","<%=happeningData[15].name%>","<%=happeningData[16].name%>","<%=happeningData[17].name%>","<%=happeningData[18].name%>","<%=happeningData[19].name%>"],
 			datasets : [
 				{
 					fillColor : "red",
 					strokeColor : "red",
-					data : [<%=happeningData[0].review_count%>/1000,<%=happeningData[1].review_count%>/1000,<%=happeningData[2].review_count%>/1000,<%=happeningData[3].review_count%>/1000,<%=happeningData[4].review_count%>/1000,<%=happeningData[5].review_count%>/1000,<%=happeningData[6].review_count%>/1000,<%=happeningData[7].review_count%>/1000,<%=happeningData[8].review_count%>/1000,<%=happeningData[9].review_count%>/1000,<%=happeningData[10].review_count%>/1000,<%=happeningData[11].review_count%>/1000,<%=happeningData[12].review_count%>/1000,<%=happeningData[13].review_count%>/1000,<%=happeningData[14].review_count%>/1000,<%=happeningData[15].review_count%>/1000,<%=happeningData[16].review_count%>/1000,<%=happeningData[17].review_count%>/1000,<%=happeningData[18].review_count%>/1000,<%=happeningData[19].review_count%>/1000]
+					data : [<%=d1%>,<%=d2%>,<%=d3%>,<%=d4%>,<%=d5%>,<%=d6%>,<%=d7%>,<%=d8%>,<%=d9%>,<%=d10%>,<%=d11%>,<%=d12%>,<%=d13%>,<%=d14%>,<%=d15%>,<%=d16%>,<%=d17%>,<%=d18%>,<%=d19%>,<%=d20%>]
 				},
 				{
 					fillColor : "turquoise",
