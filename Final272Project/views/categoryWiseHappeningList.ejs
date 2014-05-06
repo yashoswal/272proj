@@ -39,11 +39,20 @@
     <div class="box">
         <article id="content">
 	        <div class="wrapper">
+	        
+	          <h2>Most Happening <%=categories%> in <%=place%></h2>
+	          
+	        <table><tr><td>   
 	        <form name="chart" action="/chart/<%=categories%>/<%=place%>" method="post">
 	        <input type="hidden" name="categories" value="<%=categories%>">
 	        <input type="hidden" name="place" value="<%=place%>">
-	          <h2>Most Happening <%=categories%> in <%=place%><input name="Submit" type="submit" value="Grapical Analysis" style="margin-left:150px;background-color:#7532A9;color:#FFFFFF; font-size:20px;width:200px; height:30px;"/></h2>
-	        </form>  
+	        <input name="Submit" type="submit" value="Rating V/S Reviews" style="background-color:#7532A9;color:#FFFFFF; font-size:20px;width:200px; height:30px;"/>
+	        </form> </td><td>
+	        <form name="chartpie" action="/chartDoughnut/<%=categories%>/<%=place%>" method="post">
+	        	<input type="hidden" name="categories" value="<%=categories%>">
+	        	<input type="hidden" name="place" value="<%=place%>">
+	        	<input name="Submit" type="submit" value="Reviews Analysis" style="background-color:#7532A9;color:#FFFFFF; font-size:20px;width:200px; height:30px;"/>
+	        </form></td></tr></table>
 	          <div class="wrapper">
 	          	<% //console.log('Happening data inside HTML:: '+happeningData);
 						if(happeningData != null && happeningData.length > 0) {

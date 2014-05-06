@@ -49,23 +49,23 @@
 	 </div>
 	 
 	<div class="box" height="300" width="400" align="center">
-	<div style="float:left">
+	<div style="float:left;width:100%;">
 	<h2> Rating Vs Review </h2>
-		<canvas id="canvas1" height="500" width="600"></canvas>
+		<canvas id="canvas1" height="500" width="1100"></canvas>
 
 	<script>
 		var barChartData = {
-			labels : ["<%=happeningData[0].name%>","<%=happeningData[1].name%>","<%=happeningData[2].name%>","<%=happeningData[3].name%>","<%=happeningData[4].name%>"],
+			labels : ["<%=happeningData[0].name%>","<%=happeningData[1].name%>","<%=happeningData[2].name%>","<%=happeningData[3].name%>","<%=happeningData[4].name%>","<%=happeningData[5].name%>","<%=happeningData[6].name%>","<%=happeningData[7].name%>","<%=happeningData[8].name%>","<%=happeningData[9].name%>","<%=happeningData[10].name%>","<%=happeningData[11].name%>","<%=happeningData[12].name%>","<%=happeningData[13].name%>","<%=happeningData[14].name%>","<%=happeningData[15].name%>","<%=happeningData[16].name%>","<%=happeningData[17].name%>","<%=happeningData[18].name%>","<%=happeningData[19].name%>"],
 			datasets : [
 				{
-					fillColor : "rgba(220,220,220,0.5)",
-					strokeColor : "rgba(220,220,220,1)",
-					data : [<%=happeningData[0].review_count%>/1000,<%=happeningData[1].review_count%>/1000,<%=happeningData[2].review_count%>/1000,<%=happeningData[3].review_count%>/1000,<%=happeningData[4].review_count%>/1000]
+					fillColor : "red",
+					strokeColor : "red",
+					data : [<%=happeningData[0].review_count%>/1000,<%=happeningData[1].review_count%>/1000,<%=happeningData[2].review_count%>/1000,<%=happeningData[3].review_count%>/1000,<%=happeningData[4].review_count%>/1000,<%=happeningData[5].review_count%>/1000,<%=happeningData[6].review_count%>/1000,<%=happeningData[7].review_count%>/1000,<%=happeningData[8].review_count%>/1000,<%=happeningData[9].review_count%>/1000,<%=happeningData[10].review_count%>/1000,<%=happeningData[11].review_count%>/1000,<%=happeningData[12].review_count%>/1000,<%=happeningData[13].review_count%>/1000,<%=happeningData[14].review_count%>/1000,<%=happeningData[15].review_count%>/1000,<%=happeningData[16].review_count%>/1000,<%=happeningData[17].review_count%>/1000,<%=happeningData[18].review_count%>/1000,<%=happeningData[19].review_count%>/1000]
 				},
 				{
-					fillColor : "rgba(151,187,205,0.5)",
-					strokeColor : "rgba(151,187,205,1)",
-					data : [<%=happeningData[0].rating%>,<%=happeningData[1].rating%>,<%=happeningData[2].rating%>,<%=happeningData[3].rating%>,<%=happeningData[4].rating%>]
+					fillColor : "turquoise",
+					strokeColor : "turquoise",
+					data : [<%=happeningData[0].rating%>,<%=happeningData[1].rating%>,<%=happeningData[2].rating%>,<%=happeningData[3].rating%>,<%=happeningData[4].rating%>,<%=happeningData[5].rating%>,<%=happeningData[6].rating%>,<%=happeningData[7].rating%>,<%=happeningData[8].rating%>,<%=happeningData[9].rating%>,<%=happeningData[10].rating%>,<%=happeningData[11].rating%>,<%=happeningData[12].rating%>,<%=happeningData[13].rating%>,<%=happeningData[14].rating%>,<%=happeningData[15].rating%>,<%=happeningData[16].rating%>,<%=happeningData[17].rating%>,<%=happeningData[18].rating%>,<%=happeningData[19].rating%>]
 				}
 			]
 			
@@ -73,42 +73,16 @@
 	
 	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
 	</script>
-	</div>
 	<div>
-	<h2> Review Share </h2>
-	<canvas id="canvas2" height="500" width="400"></canvas>
-
-
-	<script>
-
-		var doughnutData = [
-				{
-					value: <%=happeningData[0].review_count%>,
-					color:"#F7464A"
-				},
-				{
-					value : <%=happeningData[1].review_count%>,
-					color : "#46BFBD"
-				},
-				{
-					value : <%=happeningData[2].review_count%>,
-					color : "#FDB45C"
-				},
-				{
-					value : <%=happeningData[3].review_count%>,
-					color : "#949FB1"
-				},
-				{
-					value : <%=happeningData[4].review_count%>,
-					color : "#4D5360"
-				}
-			
-			];
-		
-	var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(doughnutData);
-	
-	</script>
+	<br/>
+	<table style="border:1;border-color:#FFFFFF;"><tr><td>
+	<input type="text" style="background-color:red;width:20px;"/></td><td>Reviews with the scale of 5 </td></tr>
+	<tr><td>
+	<input type="text" style="background-color:turquoise;width:20px;"/></td><td>Ratings with the scale of 5</td><td></td></tr>
+	</table>
 	</div>
+	</div>
+	
   </div>
   <div align=center>Developed By Spring 2014 Software Engineering Students</div>
 	</body>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+	<title>The Happening - Graphical Analytics</title>
+	<meta charset="utf-8">
+		<script src="/Chart.js"></script>
+		<script src="/legend.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+
+		<link href="/stylesheets/reset.css" rel="stylesheet" type="text/css" media="all"/>
+		<link href="/stylesheets/layout.css" rel="stylesheet" type="text/css" media="all"/>
+		<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all"/>
+		<script src="js/jquery-1.6.js" ></script>
+		<script src="js/cufon-yui.js"></script>
+		<script src="js/cufon-replace.js"></script>
+		<script src="js/NewsGoth_BT_400.font.js"></script>
+		<script src="js/NewsGoth_BT_700.font.js"></script>
+		<script src="js/jcarousellite.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.mousewheel.js"></script>
+		<script src="js/atooltip.jquery.js"></script>
+		<!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<link rel="stylesheet" href="css/ie.css" type="text/css" media="all">
+		<![endif]-->
+	</head>
+	<body>
+	
+	<div class="bg1">
+	  <div class="main">
+	    <!--header -->
+	    <header>
+	      <nav>
+	        <ul id="menu">
+	          <li><a href="/home">Home</a></li>
+	          <li><a href="/happening">Happening Places</a></li>
+	          <li><a href="/developers">Developers</a></li>
+	          <li><a href="/poweredBy">Powered By</a></li>
+	        </ul>
+	      </nav>
+	      <h1><a href="/home" id="logo">Happening feel the best</a></h1>
+	    </header>
+	    <!--header end-->
+	    </div>
+	 </div>
+	 
+	<div class="box" height="300" width="400" align="center">
+	<div>
+	<h2> Review Share </h2>
+	<canvas id="canvas2" height="500" width="400"></canvas>
+
+
+	<script>
+
+		var doughnutData = [
+				{
+					value: <%=happeningData[0].review_count%>,
+					color:"#F7464A"
+				},
+				{
+					value : <%=happeningData[1].review_count%>,
+					color : "#46BFBD"
+				},
+				{
+					value : <%=happeningData[2].review_count%>,
+					color : "#FDB45C"
+				},
+				{
+					value : <%=happeningData[3].review_count%>,
+					color : "#949FB1"
+				},
+				{
+					value : <%=happeningData[4].review_count%>,
+					color : "#4D5360"
+				}
+			
+			];
+		
+	var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(doughnutData);
+	
+	</script>
+	<div>
+	<table style="border:1;border-color:#FFFFFF"><tr><td>
+	<input type="text" style="background-color:#F7464A;width:20px;"/></td><td><%=happeningData[0].name%></td></tr>
+	<tr><td>
+	<input type="text" style="background-color:#46BFBD;width:20px;"/></td><td><%=happeningData[1].name%></td></tr>
+	<tr><td>
+	<input type="text" style="background-color:#FDB45C;width:20px;"/></td><td><%=happeningData[2].name%></td></tr>
+	<tr><td>
+	<input type="text" style="background-color:#949FB1;width:20px;"/></td><td><%=happeningData[3].name%></td></tr>
+	<tr><td>
+	<input type="text" style="background-color:#4D5360;width:20px;"/></td><td><%=happeningData[4].name%></td></tr>
+	</table>
+	</div>
+	</div>
+  </div>
+  <div align=center>Developed By Spring 2014 Software Engineering Students</div>
+	</body>
+</html>

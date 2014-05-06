@@ -61,6 +61,12 @@ app.get('/chart', function (req, res) {
 	main.getChartPage(req,res);
 });
 
+app.post('/chartDoughnut/:c/:p', function (req, res) {
+	//console.log(req.params.c);
+	//console.log(req.params.p);
+	main.getChartDoughnut(req,res);
+});
+
 app.listen(port);
 console.log('Listening to port '+port);
 
