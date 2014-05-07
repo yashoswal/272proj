@@ -35,6 +35,10 @@ app.get('/happening', function (req, res) {
 	main.getHappeningPage(req,res);
 });
 
+app.get('/TicketApp', function (req, res) {
+	main.getTicketingPage(req,res);
+});
+
 
 app.post('/happeningList', function (req, res) {
 	main.listHappeningPlaces(req,res);
@@ -59,12 +63,6 @@ app.post('/chart/:c/:p', function (req, res) {
 });
 app.get('/chart', function (req, res) {
 	main.getChartPage(req,res);
-});
-
-app.post('/chartDoughnut/:c/:p', function (req, res) {
-	//console.log(req.params.c);
-	//console.log(req.params.p);
-	main.getChartDoughnut(req,res);
 });
 
 app.listen(port);

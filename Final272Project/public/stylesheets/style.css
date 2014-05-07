@@ -438,3 +438,13 @@ text-align:center;
 	text-align:center;
 	width:850px;
 }
+
+a.ticketing_app
+{
+	float: right;
+position: fixed;
+top: 262px;
+left: 0px;
+padding: 10px;
+background-color: yellowgreen;
+}

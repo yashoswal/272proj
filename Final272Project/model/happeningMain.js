@@ -137,13 +137,43 @@ function displayReviews(req,res){
 	console.log('Inside display Reviews');
 }
 
+function getTicketingPage(req,res){
+	
+	ejs.renderFile('./views/ticketing_app.ejs',
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+			
+}
 
 function getChartPage(req,res){
 	yelp.search({term: req.params.c, location: req.params.p, sort:"2"}, function(err, data) {
 		var dta="";
 		var lbl="";
 		var rt="";
-	if(err){
+	/*
+		var hap=data.businesses;
+		for(var i=0;i<5;i++) {
+			//lbl=lbl+'"'+hap[i].name+'",';
+			lbl=lbl+'"<%=happeningData['+i+'].name%>",';
+			//dta=dta+(hap[i].review_count)/1000+",";
+			dta=dta+'<%=happeningData['+i+'].review_count%>,';
+			//rt=rt+hap[i].rating+",";
+			rt=rt+'<%=happeningData['+i+'].rating%>,';
+		}
+		lbl = lbl.substring(0, lbl.length - 1);
+		dta = dta.substring(0, dta.length - 1);
+		console.log(lbl);
+		console.log(dta);*/
+		  if(err){
 				throw err;
 			}else{
 						
@@ -163,30 +193,6 @@ function getChartPage(req,res){
 		});
 }
 
-function getChartDoughnut(req,res){
-	yelp.search({term: req.params.c, location: req.params.p, sort:"2"}, function(err, data) {
-		var dta="";
-		var lbl="";
-		var rt="";
-	if(err){
-				throw err;
-			}else{
-						
-				ejs.renderFile('./views/chartReview.ejs',
-						{happeningData:data.businesses, lbl:lbl, dta:dta, rt: rt},
-						function(err, result) {
-							if (!err) {
-								res.end(result);
-							}
-							else {
-								res.send('An error occurred');
-								console.log(err);
-							}
-						});
-			}
-		  
-		});
-}
 
 exports.getHappeningPage = getHappeningPage;
 exports.listHappeningPlaces = listHappeningPlaces;
@@ -197,4 +203,4 @@ exports.getHomePage = getHomePage;
 exports.getDevelopersPage = getDevelopersPage;
 exports.getPoweredByPage = getPoweredByPage;
 exports.getChartPage = getChartPage;
-exports.getChartDoughnut = getChartDoughnut;
+exports.getTicketingPage = getTicketingPage;
