@@ -6,6 +6,9 @@ var yelp = require('./index').createClient({
 	  token_secret: 'En1-vxsT0zNKyJWwFyXuUVvxJE8',
 	  ssl: true
 	});
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/happening');
 
 function getHappeningPage(req,res){
 	ejs.renderFile('./views/happeningSearch.ejs',
